@@ -6,7 +6,9 @@
   "scripts": {
     "start-server": "nodemon api/index.js",
     "start-client": "",
-    "test": "NODE_ENV=test mocha api/**/*.test.js client/**/*.test.js --reporter spec"
+    "test": "NODE_ENV=test mocha api/**/*.test.js client/**/*.test.js --reporter spec",
+    "populate": "node scripts/populateScript.js",
+    "drop-all": "node scripts/dropAll.js"
   },
   "dependencies": {
     "apollo-server": "^2.9.15",
