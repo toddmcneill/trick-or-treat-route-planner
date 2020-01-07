@@ -1,0 +1,22 @@
+{
+  "name": "trick-or-treat-route-planner",
+  "version": "0.0.1",
+  "description": "totrp",
+  "main": "src/main.js",
+  "scripts": {
+    "start-server": "nodemon api/index.js",
+    "start-client": "",
+    "test": "NODE_ENV=test mocha api/**/*.test.js client/**/*.test.js --reporter spec"
+  },
+  "dependencies": {
+    "apollo-server": "^2.9.15",
+    "dgraph-js": "^2.0.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^14.5.8",
+    "grpc": "^1.24.2"
+  },
+  "devDependencies": {
+    "mocha": "^7.0.0",
+    "nodemon": "^2.0.2"
+  }
+}

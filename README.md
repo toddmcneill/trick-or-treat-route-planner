@@ -30,8 +30,9 @@ ToT RP
 #### Queries
 
 ```
-get_route(childId, preferredCandyId, timeLimit) {
-  house
-}
+route(childId, preferredCandyId, timeLimit): {child, route}
+houses: [House]
+children: [Child]
+candy: [Candy]
 ```
 
