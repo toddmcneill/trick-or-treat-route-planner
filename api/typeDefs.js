@@ -15,16 +15,15 @@ module.exports = gql`
   }
   
   type Child {
+    name: String
     home: House
     candy_preference: Candy
     candy_capacity: Int
-    name: String
     is_alive: Boolean
   }
   
   input RouteInput {
     childId: Int
-    preferredCandyId: Int
     timeLimit: Int
   }
 

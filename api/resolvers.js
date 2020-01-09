@@ -13,6 +13,7 @@ async function getAllHouses() {
   const query = `
   {
     houses(func: type(House)) {
+      name
       x
       y
       distributes {
@@ -20,22 +21,24 @@ async function getAllHouses() {
         mass
        }
       neighbor_of {
+        name  
         x
         y
         distributes {
           name
           mass
         }
-        name  
       }
-      name
     }
   }
   `
 
   const result = await dgraph.query(dgraphClient, query)
-  console.log(result.houses)
-  return result.houses.map(house => ({
+  return result.houses.map(mapHouse)
+}
+
+function mapHouse(house) {
+  return {
     x: house.x,
     y: house.y,
     candy: house.distributes[0],
@@ -46,16 +49,67 @@ async function getAllHouses() {
       name: neighbor.name
     })),
     name: house.name
-  }))
-
+  }
 }
 
-function getAllChildren() {
-  return []
+async function getAllChildren() {
+  const query = `
+  {
+    children(func: type(Child)) {
+      name
+      lives_at {
+        name
+        x
+        y
+        distributes {
+          name
+          mass
+        }
+        neighbor_of {
+          name  
+          x
+          y
+          distributes {
+            name
+            mass
+          }
+        }
+      }
+      candy_preference {
+        name
+        mass
+      }
+      candy_capacity
+      hit_points
+    }
+  }
+  `
+
+  const result = await dgraph.query(dgraphClient, query)
+  return result.children.map(mapChild)
 }
 
-function getAllCandy() {
-  return []
+function mapChild(child) {
+  return {
+    name: child.name,
+    home: mapHouse(child.lives_at[0]),
+    candy_preference: child.candy_preference[0],
+    candy_capacity: child.candy_capacity,
+    is_alive: true
+  }
+}
+
+async function getAllCandy() {
+  const query = `
+  {
+    candy(func: type(Candy)) {
+      name
+      mass
+    }
+  }
+  `
+  const result = await dgraph.query(dgraphClient, query)
+  return result.candy
 }
 
 module.exports = {
