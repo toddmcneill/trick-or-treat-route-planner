@@ -71,7 +71,7 @@ function generateMutations() {
   for (let i = 0; i < houses.length; i++) {
     const house = houses[i]
     mutations.push(`_:${house.blankId} <dgraph.type> "House" .`)
-    mutations.push(`_:${house.blankId} <name> "${house.name}'s house" .`)
+    mutations.push(`_:${house.blankId} <name> "${house.name}'s House" .`)
     mutations.push(`_:${house.blankId} <x> "${house.x}" .`)
     mutations.push(`_:${house.blankId} <y> "${house.y}" .`)
     mutations.push(`_:${house.blankId} <distributes> _:${house.distributes} .`)

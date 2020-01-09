@@ -1,20 +1,24 @@
 const { gql } = require('apollo-server')
 
 module.exports = gql`
-  type House {
-    x: Int
-    y: Int
-    candy: Candy
-    neighbors: [House]
-    name: String
-  }
-  
   type Candy {
+    uid: String
     name: String
     mass: Int
   }
   
+  type House {
+    uid: String
+    name: String
+    x: Int
+    y: Int
+    candy: Candy
+    neighbors: [House]
+    time_to: Int
+  }
+  
   type Child {
+    uid: String
     name: String
     home: House
     candy_preference: Candy
@@ -23,19 +27,20 @@ module.exports = gql`
   }
   
   input RouteInput {
-    childId: Int
+    childId: String
     timeLimit: Int
   }
 
   type RouteResponse {
     child: Child
+    collectedCandy: [Candy]
     route: [House]
   }
 
   type Query {
-    route(input: RouteInput): RouteResponse
     houses: [House]
     children: [Child]
     candy: [Candy]
+    route(input: RouteInput): RouteResponse
   }
 `
