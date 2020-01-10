@@ -1,0 +1,6 @@
+.house {
+    background-color: orange;
+    position: absolute;
+    box-sizing: border-box;
+    cursor: pointer;
+}

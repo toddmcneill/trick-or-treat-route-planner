@@ -180,6 +180,7 @@ async function getRoute(parent, args) {
     const nextHouse = houses.find(house => house.uid === nextNeighbor.uid)
     route.push(nextHouse)
     currentHouse = nextHouse
+    timeLeft -= nextNeighbor.time_between
 
     // Add candy to the collected candy.
     collectedCandy.push(currentHouse.distributes[0])

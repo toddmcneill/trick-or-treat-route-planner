@@ -1,0 +1,23 @@
+.app {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.leftColumn > * + * {
+  margin-top: 10px;
+}
+
+.rightColumn {
+  flex-grow: 1
+}
