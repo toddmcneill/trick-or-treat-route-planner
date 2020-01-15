@@ -122,9 +122,9 @@ function generateCandies() {
 }
 
 function generateHouses(candy) {
-  const count = Math.ceil((Math.random() * 10) + 5)
-  const gridSizeX = Math.ceil((Math.random() * 10) + 5)
-  const gridSizeY = Math.ceil((Math.random() * 10) + 5)
+  const count = Math.ceil((Math.random() * 10) + 40)
+  const gridSizeX = Math.ceil((Math.random() * 10) + 20)
+  const gridSizeY = Math.ceil((Math.random() * 10) + 20)
   const houses = []
   for (let i = 0; i < count; i++) {
     let x

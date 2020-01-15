@@ -1,6 +1,13 @@
 .house {
-    background-color: orange;
-    position: absolute;
-    box-sizing: border-box;
-    cursor: pointer;
+  position: absolute;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  position: absolute;
+  top: -200%;
+  white-space: nowrap;
 }

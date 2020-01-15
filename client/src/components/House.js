@@ -1,14 +1,12 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { HouseImage } from './HouseImage'
 import styles from './house.module.css'
 
-export const House = ({house, routeIndex, scale}) => {
-  const { name, x, y } = house
+export const House = React.forwardRef(({ house, color, scale }, ref) => {
+  const { name, x, y, candy } = house
 
-  let label = name
-  if (routeIndex !== -1 && routeIndex !== null) {
-    label += ` (${routeIndex})`
-  }
+  const [showLabel, setShowLabel] = useState(false)
+  let label =  <div className={styles.label}>{name} ({candy.name})</div>
 
   return (
     <div
@@ -19,6 +17,12 @@ export const House = ({house, routeIndex, scale}) => {
         margin: `${scale/4}px`,
         top: `${scale*y}px`,
         left: `${scale*x}px`,
-      }}>{label}</div>
+      }}
+      onMouseEnter={() => setShowLabel(true)}
+      onMouseLeave={() => setShowLabel(false)}
+    >
+      {showLabel && label}
+      <HouseImage color={color} ref={ref} />
+    </div>
   )
-}
+})
