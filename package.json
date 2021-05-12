@@ -15,7 +15,7 @@
     "dgraph-js": "^2.0.2",
     "dotenv": "^8.2.0",
     "graphql": "^14.5.8",
-    "grpc": "^1.24.2"
+    "grpc": "^1.24.9"
   },
   "devDependencies": {
     "faker": "^4.1.0",
